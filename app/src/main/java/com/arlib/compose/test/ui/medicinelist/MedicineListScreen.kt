@@ -1,9 +1,11 @@
 package com.arlib.compose.test.ui.medicinelist
 
 import android.content.Intent
+import androidx.activity.ComponentActivity
 import androidx.activity.OnBackPressedCallback
 import androidx.activity.OnBackPressedDispatcher
 import androidx.activity.compose.LocalOnBackPressedDispatcherOwner
+import androidx.appcompat.app.AppCompatActivity
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
@@ -45,6 +47,7 @@ import androidx.compose.ui.draw.drawBehind
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
@@ -76,6 +79,13 @@ fun MedicineListScreen(
     }
 
     BackPressHandler(onBackPressed = onBack)
+
+    ShowList(
+        email = email,
+        data = arrayListOf(),
+        onItemClick = itemClick,
+        viewModel = viewModel
+    )
 
     val dataState by viewModel.dataLoadStateFlow.collectAsState(initial = MainActivityViewModel.DataLoadState.Start)
     when (dataState) {
@@ -159,8 +169,10 @@ private fun ShowList(
                 style = MaterialTheme.typography.titleLarge,
                 textAlign = TextAlign.Start,
                 modifier = Modifier
+                    .testTag("Greeting User")
                     .padding(top = 50.dp, start = 20.dp, end = 20.dp)
-                    .fillMaxWidth()
+                    .fillMaxWidth(),
+
             )
             LazyColumn(
                 modifier = Modifier.absolutePadding(top = 20.dp),
@@ -227,7 +239,7 @@ private fun ListItemView(
                 Row {
                     Image(
                         painter = painterResource(id = R.drawable.ic_medicine),
-                        contentDescription = "",
+                        contentDescription = "Medicine",
                         modifier = Modifier
                             .absolutePadding(
                                 left = 10.dp,
@@ -351,7 +363,7 @@ fun DetailDialog(
 
                             Image(
                                 painter = painterResource(id = com.google.android.material.R.drawable.ic_clear_black_24),
-                                contentDescription = null,
+                                contentDescription = "Detail page",
                                 modifier = Modifier
                                     .size(42.dp)
                                     .absolutePadding(

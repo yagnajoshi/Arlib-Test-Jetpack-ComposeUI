@@ -25,7 +25,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
 import com.arlib.compose.test.repo.UserRepository
-import com.arlibs.yagna.roomDatabase.LoginDatabase
+import com.arlib.compose.test.roomDatabase.LoginDatabase
 import com.arlibs.yagna.roomDatabase.LoginTable
 import kotlinx.coroutines.launch
 import java.util.concurrent.Executors

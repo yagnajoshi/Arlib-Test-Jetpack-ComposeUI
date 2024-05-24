@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.arlib.compose.test.survey
+package com.arlib.compose.test
 
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import com.arlib.compose.test.ui.signin.state.isEmailOrUsernameValid

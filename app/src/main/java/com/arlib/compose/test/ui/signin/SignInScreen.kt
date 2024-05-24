@@ -199,7 +199,7 @@ private fun Logo(
     Image(
         painter = painterResource(id = assetId),
         modifier = modifier,
-        contentDescription = null
+        contentDescription = "Sign in page Image"
     )
 }
 

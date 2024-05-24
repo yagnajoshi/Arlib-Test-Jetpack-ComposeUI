@@ -25,7 +25,7 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import com.arlib.compose.test.theme.ArlibTestTheme
 import com.arlib.compose.test.ui.signin.viewmodel.SignInViewModel
 import com.arlib.compose.test.ui.signin.viewmodel.SignInViewModelFactory
-import com.arlibs.yagna.roomDatabase.LoginDatabase
+import com.arlib.compose.test.roomDatabase.LoginDatabase
 
 class MainActivity : AppCompatActivity() {
 

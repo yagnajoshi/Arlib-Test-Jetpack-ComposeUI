@@ -26,6 +26,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ArlibTest">
 
+        <activity android:name="androidx.activity.ComponentActivity" />
+
         <activity
             android:name=".MainActivity"
             android:exported="true"

@@ -63,6 +63,13 @@ android {
     composeOptions {
         kotlinCompilerExtensionVersion = libs.versions.compose.compiler.get()
     }
+
+    testOptions {
+        unitTests {
+            isReturnDefaultValues = true
+            isIncludeAndroidResources = true
+        }
+    }
 }
 
 dependencies {
@@ -99,6 +106,8 @@ dependencies {
     testImplementation(libs.androidx.test.ext.junit)
     testImplementation(libs.androidx.test.ext.truth)
     testImplementation(libs.robolectric)
+    testImplementation(libs.androidx.navigation.navigation.testing)
+    debugImplementation(libs.androidx.lifecycle.runtime)
 
     implementation(libs.retrofit.retrofit2)
     implementation(libs.retrofit.converter.gson)
@@ -116,7 +125,11 @@ dependencies {
 
     implementation(libs.androidx.compose.runtime.livedata)
 
+    testImplementation(libs.androidx.compose.ui.test)
+    testImplementation(libs.androidx.compose.ui.test.junit4)
+    testImplementation(libs.retrofit.mockwebserver)
 
+    testImplementation(libs.androidx.test.espresso.core)
 
 
 }

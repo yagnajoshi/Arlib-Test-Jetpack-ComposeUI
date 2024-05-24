@@ -17,7 +17,6 @@
 package com.arlib.compose.test.repo
 
 import androidx.compose.runtime.Immutable
-import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.arlibs.yagna.roomDatabase.LoginDao
 import com.arlibs.yagna.roomDatabase.LoginTable
@@ -52,11 +51,11 @@ object UserRepository {
         data.email =email
         data.password = password
 
-        var reuslt  = loginDao?.login(email)
+        var reuslt  = loginDao?.getUserByUsername(email)
         if(reuslt.isNullOrEmpty())
         {
             loginDao?.insertDetails(data)
-            reuslt  = loginDao?.login(email)
+            reuslt  = loginDao?.getUserByUsername(email)
             _oldOrNewUser.postValue("New user saved successfully : $email")
 
         }
